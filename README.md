@@ -1,4 +1,4 @@
-# ac-api-csharp
+# Unofficial ActiveCampaign C# Wrapper
 C# Wrapper for the ActiveCampaign API
 
 ## Connect to API
