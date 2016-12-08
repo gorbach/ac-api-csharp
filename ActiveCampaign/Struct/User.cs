@@ -5,6 +5,7 @@ namespace ActiveCampaign.Struct
 {
     public class User : CoreStruct
     {
+        public int Id = 0;
         public string Username = null;
         public string Password = null;
         public string PasswordR = null;
