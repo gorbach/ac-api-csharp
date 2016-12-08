@@ -32,6 +32,7 @@ namespace ActiveCampaign
 
             if (Api.Debug)
             {
+                Console.WriteLine(url);
                 Console.WriteLine(data);
             }
 
@@ -67,6 +68,7 @@ namespace ActiveCampaign
 
             if (Api.Debug)
             {
+                Console.WriteLine(url);
                 Console.WriteLine(postStruct);
                 Console.WriteLine(data);
             }

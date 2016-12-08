@@ -133,11 +133,9 @@ namespace ActiveCampaign.Models
             return response;
         }
 
-        public string View(List<int> ids)
+        public string View(int id)
         {
-            string joinedIds = string.Join(",", ids.Select(x => x.ToString()).ToArray());
-
-            var request = Api.AcUrl + "user_view&ids=" + joinedIds;
+            var request = Api.AcUrl + "user_view&id=" + id;
             var response = ReadStream(request);
             return response;
         }
