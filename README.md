@@ -1,6 +1,8 @@
 # Unofficial ActiveCampaign C# Wrapper
 C# Wrapper for the ActiveCampaign API
 
+This is still a work in progress and will update as it is finished
+
 ## Connect to API
 ```
 string url = "https://account.api-us1.com";
