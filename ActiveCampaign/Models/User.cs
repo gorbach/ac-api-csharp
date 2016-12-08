@@ -13,13 +13,12 @@ namespace ActiveCampaign.Models
         {
             var request = Api.AcUrl + "user_me";
             var response = Api.ReadStream(request);
-            Console.WriteLine(response);
             return response;
         }
 
         public string Add(Struct.User user)
         {
-            
+            var request = Api.ApiUrl + "user_+add";
         }
     }
 }
