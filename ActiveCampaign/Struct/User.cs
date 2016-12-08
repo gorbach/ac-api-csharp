@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ActiveCampaign.Struct
 {
-    public struct User
+    public class User : CoreStruct
     {
-        public string Username;
-        public string Password;
-        public string PasswordR;
-        public string FirstName;
-        public string LastName;
-        public string Email;
-        public string Phone;
+        public string Username = null;
+        public string Password = null;
+        public string PasswordR = null;
+        public string FirstName = null;
+        public string LastName = null;
+        public string Email = null;
+        public string Phone = null;
         public Dictionary<int, int> GroupDictionary;
-        public string Language;
-        public string Timezone;
+        public string Language = null;
+        public string Timezone = null;
     }
 }

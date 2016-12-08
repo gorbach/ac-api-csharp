@@ -31,26 +31,5 @@ namespace ActiveCampaign
         public Api(string apiUrl, string apiKey, bool debug) : this(apiUrl, apiKey, debug, "xml")
         {
         }
-
-        public string ReadStream(string url)
-        {
-            string data = null;
-
-            var request = (HttpWebRequest) WebRequest.Create(url);
-            var response = (HttpWebResponse) request.GetResponse();
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var apiStream = response.GetResponseStream();
-                if (apiStream != null)
-                {
-                    var apiReader = new StreamReader(apiStream);
-                    data = apiReader.ReadToEnd();
-                    apiStream.Close();
-                }
-            }
-            response.Close();
-            return data;
-        }
     }
 }
