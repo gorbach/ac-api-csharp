@@ -26,7 +26,7 @@ namespace ActiveCampaign
             Debug = debug;
 
             // Build the URL
-            AcUrl = ApiUrl + "/admin/api.php?api_key=" + ApiKey + "&api_ouput=" + output + "&api_action=";
+            AcUrl = ApiUrl + "/admin/api.php?api_key=" + ApiKey + "&api_output=" + output + "&api_action=";
 
             User = new User(this);
             Account = new Account(this);
