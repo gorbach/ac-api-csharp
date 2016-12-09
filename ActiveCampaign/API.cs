@@ -16,6 +16,7 @@ namespace ActiveCampaign
         // Load Models
         public Account Account;
         public Automation Automation;
+        public Contact Contact;
         public User User;
 
         public Api(string apiUrl, string apiKey, bool debug, string output)
@@ -29,6 +30,7 @@ namespace ActiveCampaign
 
             User = new User(this);
             Account = new Account(this);
+            Contact = new Contact(this);
         }
 
         public Api(string apiUrl, string apiKey, bool debug) : this(apiUrl, apiKey, debug, "xml")
