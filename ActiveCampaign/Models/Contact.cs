@@ -23,78 +23,29 @@ namespace ActiveCampaign.Models
                 + "&last_name=" + contact.LastName
                 + "&phone=" + contact.Phone
                 + "&orgname=" + contact.OrgName
-                + "&tags=" + contact.Tags
+                + "&tags=" + GetTags(contact)
                 + "&ip4=" + contact.Ip4;
-
-            if (contact.FieldDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<string, string> pair in contact.FieldDictionary)
-                {
-                    postData += "&field[" + HttpUtility.UrlEncode(pair.Key) + "]=" + HttpUtility.UrlEncode(pair.Value);
-                }
-            }
-
-            if (contact.ListDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.ListDictionary)
-                {
-                    postData += "&p[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.StatusDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.StatusDictionary)
-                {
-                    postData += "&status[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
 
             if (contact.Form > 0)
             {
                 postData += "&form=" + contact.Form;
             }
 
-            if (contact.NoRespondersDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.NoRespondersDictionary)
-                {
-                    postData += "&noresponders[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.SDateDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, string> pair in contact.SDateDictionary)
-                {
-                    postData += "&sdate[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.InstantRespondersDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.InstantRespondersDictionary)
-                {
-                    postData += "&instantresponders[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.LastMessageDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.LastMessageDictionary)
-                {
-                    postData += "&lastmessage[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
+            postData += HttpHelper.FormatValues("field", contact.FieldDictionary);
+            postData += HttpHelper.FormatValues("p", contact.ListDictionary);
+            postData += HttpHelper.FormatValues("status", contact.StatusDictionary);
+            postData += HttpHelper.FormatValues("noresponders", contact.NoRespondersDictionary);
+            postData += HttpHelper.FormatValues("sdate", contact.SDateDictionary);
+            postData += HttpHelper.FormatValues("instantresponders", contact.InstantRespondersDictionary);
+            postData += HttpHelper.FormatValues("lastmessage", contact.LastMessageDictionary);
 
             string response = WriteStream(request, postData);
             return response;
+        }
+
+        private static string GetTags(Struct.Contact contact)
+        {
+            return HttpUtility.UrlEncode(String.Join(",", contact.Tags.ToArray()));
         }
 
         public string AutomationList(int Id, string email, int offset = 0, int limit = 20)
@@ -129,75 +80,21 @@ namespace ActiveCampaign.Models
                 + "&last_name=" + contact.LastName
                 + "&phone=" + contact.Phone
                 + "&orgname=" + contact.OrgName
-                + "&tags=" + contact.Tags
+                + "&tags=" + GetTags(contact)
                 + "&ip4=" + contact.Ip4;
-
-            if (contact.FieldDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<string, string> pair in contact.FieldDictionary)
-                {
-                    postData += "&field[" + HttpUtility.UrlEncode(pair.Key) + "]=" + HttpUtility.UrlEncode(pair.Value);
-                }
-            }
-
-            if (contact.ListDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.ListDictionary)
-                {
-                    postData += "&p[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.StatusDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.StatusDictionary)
-                {
-                    postData += "&status[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
 
             if (contact.Form > 0)
             {
                 postData += "&form=" + contact.Form;
             }
 
-            if (contact.NoRespondersDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.NoRespondersDictionary)
-                {
-                    postData += "&noresponders[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.SDateDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, string> pair in contact.SDateDictionary)
-                {
-                    postData += "&sdate[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.InstantRespondersDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.InstantRespondersDictionary)
-                {
-                    postData += "&instantresponders[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.LastMessageDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.LastMessageDictionary)
-                {
-                    postData += "&lastmessage[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
+            postData += HttpHelper.FormatValues("field", contact.FieldDictionary);
+            postData += HttpHelper.FormatValues("p", contact.ListDictionary);
+            postData += HttpHelper.FormatValues("status", contact.StatusDictionary);
+            postData += HttpHelper.FormatValues("noresponders", contact.NoRespondersDictionary);
+            postData += HttpHelper.FormatValues("sdate", contact.SDateDictionary);
+            postData += HttpHelper.FormatValues("instantresponders", contact.InstantRespondersDictionary);
+            postData += HttpHelper.FormatValues("lastmessage", contact.LastMessageDictionary);
 
             string response = WriteStream(request, postData);
             return response;
@@ -288,75 +185,21 @@ namespace ActiveCampaign.Models
                 + "&last_name=" + contact.LastName
                 + "&phone=" + contact.Phone
                 + "&orgname=" + contact.OrgName
-                + "&tags=" + contact.Tags
+                + "&tags=" + GetTags(contact)
                 + "&ip4=" + contact.Ip4;
-
-            if (contact.FieldDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<string, string> pair in contact.FieldDictionary)
-                {
-                    postData += "&field[" + HttpUtility.UrlEncode(pair.Key) + "]=" + HttpUtility.UrlEncode(pair.Value);
-                }
-            }
-
-            if (contact.ListDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.ListDictionary)
-                {
-                    postData += "&p[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.StatusDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.StatusDictionary)
-                {
-                    postData += "&status[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
 
             if (contact.Form > 0)
             {
                 postData += "&form=" + contact.Form;
             }
 
-            if (contact.NoRespondersDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.NoRespondersDictionary)
-                {
-                    postData += "&noresponders[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.SDateDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, string> pair in contact.SDateDictionary)
-                {
-                    postData += "&sdate[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.InstantRespondersDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.InstantRespondersDictionary)
-                {
-                    postData += "&instantresponders[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
-
-            if (contact.LastMessageDictionary.Count > 0)
-            {
-                foreach (KeyValuePair<int, int> pair in contact.LastMessageDictionary)
-                {
-                    postData += "&lastmessage[" + HttpUtility.UrlEncode(pair.Key.ToString()) + "]=" +
-                                HttpUtility.UrlEncode(pair.Value.ToString());
-                }
-            }
+            postData += HttpHelper.FormatValues("field", contact.FieldDictionary);
+            postData += HttpHelper.FormatValues("p", contact.ListDictionary);
+            postData += HttpHelper.FormatValues("status", contact.StatusDictionary);
+            postData += HttpHelper.FormatValues("noresponders", contact.NoRespondersDictionary);
+            postData += HttpHelper.FormatValues("sdate", contact.SDateDictionary);
+            postData += HttpHelper.FormatValues("instantresponders", contact.InstantRespondersDictionary);
+            postData += HttpHelper.FormatValues("lastmessage", contact.LastMessageDictionary);
 
             string response = WriteStream(request, postData);
             return response;
@@ -380,7 +223,7 @@ namespace ActiveCampaign.Models
 
             if (contact.Tags.Count > 0)
             {
-                postData += "tags=" + HttpUtility.UrlEncode(String.Join(",", contact.Tags.ToArray()));
+                postData += "tags=" + GetTags(contact);
             }
 
             var response = WriteStream(request, postData);
@@ -405,7 +248,7 @@ namespace ActiveCampaign.Models
 
             if (contact.Tags.Count > 0)
             {
-                postData += "&tags=" + HttpUtility.UrlEncode(string.Join(",", contact.Tags.ToArray()));
+                postData += "&tags=" + GetTags(contact);
             }
 
             var response = WriteStream(request, postData);
