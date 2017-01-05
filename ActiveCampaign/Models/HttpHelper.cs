@@ -23,8 +23,6 @@ namespace ActiveCampaign.Models
                         k = $"{key}[{pair.Key.ToString()}]";
                     }
 
-                    k = HttpUtility.UrlEncode(k);
-
                     postData += $"&{HttpUtility.UrlEncode(k)}={HttpUtility.UrlEncode(pair.Value.ToString())}";
                 }
             }
