@@ -37,17 +37,17 @@ namespace ActiveCampaign.Models
             return SendRequest<ListFieldInsertResult>(request, postData);
         }
 
-        public string ListList(ListListOptions options)
+        public ListSelectList ListList(ListListOptions options)
         {
             var request = Api.AcUrl + "list_list";
 
-            string postData = "ids=" + "ids=" + HttpHelper.IdsStr(options.Ids);
+            string postData = "ids=" + HttpHelper.IdsStr(options.Ids);
 
             postData += HttpHelper.FormatValues("filters", options.Filters);
             postData += "&global_fields=" + HttpHelper.Bool(options.GlobalFields);
             postData += "&full=" + HttpHelper.Bool(options.Full);
 
-            return WriteStream(request, postData);
+            return SendRequest<ListSelectList>(request, postData);
         }
     }
 }

@@ -45,8 +45,11 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Automation.cs" />
     <Compile Include="Models\Branding.cs" />
+    <Compile Include="Models\Fields.cs" />
+    <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Responses\ListSelectList.cs" />
     <Compile Include="Struct\ListListOptions.cs" />
     <Compile Include="Responses\FieldsListResponse.cs" />
     <Compile Include="Models\HttpHelper.cs" />
