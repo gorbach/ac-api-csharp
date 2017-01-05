@@ -1,10 +1,14 @@
-﻿using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
-namespace ActiveCampaign.Models
+namespace ActiveCampaign.Responses
 {
-    [XmlRoot(ElementName = "subscriber_sync")]
-    public class SubscriberSyncResponse : IApiResult
+    [XmlRoot(ElementName = "list_field_select_nodata_rel")]
+    public class FieldsListResult : IApiResult
     {
+        [XmlElement(ElementName = "row")]
+        public List<Row> Row { get; set; }
+
         [XmlElement(ElementName = "result_code")]
         public int ResultCode { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace ActiveCampaign.Models
+﻿namespace ActiveCampaign.Responses
 {
     public interface IApiResult
     {

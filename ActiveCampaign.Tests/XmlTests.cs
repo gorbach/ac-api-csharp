@@ -1,4 +1,5 @@
 ﻿using ActiveCampaign.Models;
+using ActiveCampaign.Responses;
 using Xunit;
 
 namespace ActiveCampaign.Tests

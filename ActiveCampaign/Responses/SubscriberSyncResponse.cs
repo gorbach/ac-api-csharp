@@ -1,9 +1,9 @@
 ﻿using System.Xml.Serialization;
 
-namespace ActiveCampaign.Models
+namespace ActiveCampaign.Responses
 {
-    [XmlRoot(ElementName = "subscriber_update_post")]
-    public class SubscriberUpdatePost : IApiResult
+    [XmlRoot(ElementName = "subscriber_sync")]
+    public class SubscriberSyncResponse : IApiResult
     {
         [XmlElement(ElementName = "result_code")]
         public int ResultCode { get; set; }

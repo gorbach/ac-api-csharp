@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace ActiveCampaign.Models
+namespace ActiveCampaign.Responses
 {
     [XmlRoot(ElementName = "subscriber_insert_post")]
     public class SubscriberInsertResponse : IApiResult
