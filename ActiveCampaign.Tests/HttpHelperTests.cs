@@ -12,6 +12,14 @@ namespace ActiveCampaign.Tests
     public class HttpHelperTests
     {
         [Fact]
+        public void can_format_null_dict()
+        {
+            var result = HttpHelper.FormatValues<string, string>("data", null);
+
+            Assert.Equal("", result);
+        }
+
+        [Fact]
         public void can_format_simple_string_values()
         {
             var c = new Struct.Contact();

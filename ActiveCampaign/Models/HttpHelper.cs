@@ -11,22 +11,21 @@ namespace ActiveCampaign.Models
         {
             var postData = "";
 
-            if (dict.Count > 0)
-            {
-                foreach (KeyValuePair<TKey, TValue> pair in dict)
-                {
-                    string k;
-                    if (addZero)
-                    {
-                        k = $"{key}[{pair.Key.ToString()}, 0]";
-                    }
-                    else
-                    {
-                        k = $"{key}[{pair.Key.ToString()}]";
-                    }
+            if (dict == null || dict.Count <= 0) return postData;
 
-                    postData += $"&{HttpUtility.UrlEncode(k)}={HttpUtility.UrlEncode(pair.Value.ToString())}";
+            foreach (KeyValuePair<TKey, TValue> pair in dict)
+            {
+                string k;
+                if (addZero)
+                {
+                    k = $"{key}[{pair.Key.ToString()}, 0]";
                 }
+                else
+                {
+                    k = $"{key}[{pair.Key.ToString()}]";
+                }
+
+                postData += $"&{HttpUtility.UrlEncode(k)}={HttpUtility.UrlEncode(pair.Value.ToString())}";
             }
             return postData;
         }
