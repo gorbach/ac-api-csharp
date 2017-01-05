@@ -58,6 +58,12 @@
   <ItemGroup>
     <Compile Include="HttpHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Files.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Files.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XmlTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -67,6 +73,21 @@
       <Project>{31A9501D-A6B2-45DB-90ED-2B471F4BCF59}</Project>
       <Name>ActiveCampaign</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Files.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Files.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subs_sync.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscriber_insert_post.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscriber_update_post.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

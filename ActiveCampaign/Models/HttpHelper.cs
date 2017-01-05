@@ -5,7 +5,7 @@ namespace ActiveCampaign.Models
 {
     public class HttpHelper
     {
-        public static string FormatValues<TKey, TValue>(string key, Dictionary<TKey, TValue> dict)
+        public static string FormatValues<TKey, TValue>(string key, Dictionary<TKey, TValue> dict, bool addZero = false)
         {
             var postData = "";
 
@@ -13,7 +13,19 @@ namespace ActiveCampaign.Models
             {
                 foreach (KeyValuePair<TKey, TValue> pair in dict)
                 {
-                    postData += $"&{key}[{HttpUtility.UrlEncode(pair.Key.ToString())}]={HttpUtility.UrlEncode(pair.Value.ToString())}";
+                    string k;
+                    if (addZero)
+                    {
+                        k = $"{key}[{pair.Key.ToString()}, 0]";
+                    }
+                    else
+                    {
+                        k = $"{key}[{pair.Key.ToString()}]";
+                    }
+
+                    k = HttpUtility.UrlEncode(k);
+
+                    postData += $"&{HttpUtility.UrlEncode(k)}={HttpUtility.UrlEncode(pair.Value.ToString())}";
                 }
             }
             return postData;

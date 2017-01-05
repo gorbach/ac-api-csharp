@@ -13,7 +13,7 @@ namespace ActiveCampaign.Models
             Api = api;
         }
 
-        public string Add(Struct.Contact contact)
+        public SubscriberInsertResponse Add(Struct.Contact contact)
         {
             var request = Api.AcUrl + "contact_add";
 
@@ -31,7 +31,7 @@ namespace ActiveCampaign.Models
                 postData += "&form=" + contact.Form;
             }
 
-            postData += HttpHelper.FormatValues("field", contact.FieldDictionary);
+            postData += HttpHelper.FormatValues("field", contact.FieldDictionary, true);
             postData += HttpHelper.FormatValues("p", contact.ListDictionary);
             postData += HttpHelper.FormatValues("status", contact.StatusDictionary);
             postData += HttpHelper.FormatValues("noresponders", contact.NoRespondersDictionary);
@@ -39,8 +39,7 @@ namespace ActiveCampaign.Models
             postData += HttpHelper.FormatValues("instantresponders", contact.InstantRespondersDictionary);
             postData += HttpHelper.FormatValues("lastmessage", contact.LastMessageDictionary);
 
-            string response = WriteStream(request, postData);
-            return response;
+            return SendRequest<SubscriberInsertResponse>(request, postData);
         }
 
         private static string GetTags(Struct.Contact contact)
@@ -69,9 +68,9 @@ namespace ActiveCampaign.Models
             return response;
         }
 
-        public string Edit(Struct.Contact contact)
+        public SubscriberUpdatePost Edit(Struct.Contact contact)
         {
-            var request = Api.AcUrl + "contact_add";
+            var request = Api.AcUrl + "contact_edit";
 
             string postData =
                 "id=" + contact.Id
@@ -88,7 +87,7 @@ namespace ActiveCampaign.Models
                 postData += "&form=" + contact.Form;
             }
 
-            postData += HttpHelper.FormatValues("field", contact.FieldDictionary);
+            postData += HttpHelper.FormatValues("field", contact.FieldDictionary, true);
             postData += HttpHelper.FormatValues("p", contact.ListDictionary);
             postData += HttpHelper.FormatValues("status", contact.StatusDictionary);
             postData += HttpHelper.FormatValues("noresponders", contact.NoRespondersDictionary);
@@ -96,8 +95,7 @@ namespace ActiveCampaign.Models
             postData += HttpHelper.FormatValues("instantresponders", contact.InstantRespondersDictionary);
             postData += HttpHelper.FormatValues("lastmessage", contact.LastMessageDictionary);
 
-            string response = WriteStream(request, postData);
-            return response;
+            return SendRequest<SubscriberUpdatePost>(request, postData);
         }
 
         public string List(List<int> contactList, string filters = null, int full = 0, string sort = "id",
@@ -175,7 +173,7 @@ namespace ActiveCampaign.Models
             return response;
         }
 
-        public string Sync(Struct.Contact contact)
+        public SubscriberSyncResponse Sync(Struct.Contact contact)
         {
             var request = Api.AcUrl + "contact_sync";
 
@@ -193,7 +191,7 @@ namespace ActiveCampaign.Models
                 postData += "&form=" + contact.Form;
             }
 
-            postData += HttpHelper.FormatValues("field", contact.FieldDictionary);
+            postData += HttpHelper.FormatValues("field", contact.FieldDictionary, true);
             postData += HttpHelper.FormatValues("p", contact.ListDictionary);
             postData += HttpHelper.FormatValues("status", contact.StatusDictionary);
             postData += HttpHelper.FormatValues("noresponders", contact.NoRespondersDictionary);
@@ -201,8 +199,7 @@ namespace ActiveCampaign.Models
             postData += HttpHelper.FormatValues("instantresponders", contact.InstantRespondersDictionary);
             postData += HttpHelper.FormatValues("lastmessage", contact.LastMessageDictionary);
 
-            string response = WriteStream(request, postData);
-            return response;
+            return SendRequest<SubscriberSyncResponse>(request, postData);
         }
 
         public string TagAdd(Struct.Contact contact)

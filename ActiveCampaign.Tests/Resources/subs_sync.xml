@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<subscriber_sync>
+
+<result_code>0</result_code>
+
+<result_message>There was an error processing custom field CompanyName. Try encoding each 'field[]' parameter.</result_message>
+
+<result_output>xml</result_output>
+
+</subscriber_sync>

@@ -33,5 +33,11 @@ namespace ActiveCampaign.Tests
 
             Assert.Equal("&data[1]=1&data[2]=2", result);
         }
+
+        [Fact]
+        public void can_encode_field()
+        {
+            var values = HttpHelper.FormatValues("field", new Dictionary<string, string>() { {"CompanyName", "YourCompany"} }, true);
+        }
     }
 }

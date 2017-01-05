@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using ActiveCampaign.Models;
 using ActiveCampaign.Struct;
 using static System.Net.WebRequestMethods;
 
@@ -74,6 +75,12 @@ namespace ActiveCampaign
             }
 
             return data;
+        }
+
+        public T SendRequest<T>(string url, string postStruct)
+        {
+            var response = WriteStream(url, postStruct);
+            return XmlHelper.Deserialize<T>(response);
         }
     }
 }

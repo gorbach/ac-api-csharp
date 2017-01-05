@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<subscriber_insert_post>
+
+<subscriber_id>154</subscriber_id>
+
+<sendlast_should>0</sendlast_should>
+
+<sendlast_did>0</sendlast_did>
+
+<result_code>1</result_code>
+
+<result_message>Contact added</result_message>
+
+<result_output>xml</result_output>
+
+</subscriber_insert_post>
