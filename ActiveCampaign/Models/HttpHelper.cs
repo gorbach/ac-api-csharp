@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 
 namespace ActiveCampaign.Models
@@ -27,6 +29,22 @@ namespace ActiveCampaign.Models
                 }
             }
             return postData;
+        }
+
+        public static string IdsStr(params int[] ids)
+        {
+            var idsStr = "all";
+
+            if (ids != null && ids.Any())
+            {
+                idsStr = string.Join(",", ids.Select(x => x.ToString()).ToArray());
+            }
+            return idsStr;
+        }
+
+        public static string Bool(bool value)
+        {
+            return value ? "1" : "0";
         }
     }
 }

@@ -19,14 +19,7 @@ namespace ActiveCampaign.Models
         {
             var request = Api.AcUrl + "list_field_view";
 
-            var idsStr = "all";
-
-            if (ids == null || ids.Any())
-            {
-                idsStr = string.Join(",", ids.Select(x => x.ToString()).ToArray());
-            }
-
-            string postData = "ids=" + idsStr;
+            string postData = "ids=" + HttpHelper.IdsStr(ids);
 
             return SendRequest<FieldsListResult>(request, postData);
         }
@@ -39,9 +32,22 @@ namespace ActiveCampaign.Models
                               "&type=" + (int)field.ListFieldType +
                               "&perstag=" + field.Perstag +
                               "&p[0]=" + "0" + // all lists
-                              "&req=" + (field.Required ? "1" : "0");
+                              "&req=" + HttpHelper.Bool(field.Required);
 
             return SendRequest<ListFieldInsertResult>(request, postData);
+        }
+
+        public string ListList(ListListOptions options)
+        {
+            var request = Api.AcUrl + "list_list";
+
+            string postData = "ids=" + "ids=" + HttpHelper.IdsStr(options.Ids);
+
+            postData += HttpHelper.FormatValues("filters", options.Filters);
+            postData += "&global_fields=" + HttpHelper.Bool(options.GlobalFields);
+            postData += "&full=" + HttpHelper.Bool(options.Full);
+
+            return WriteStream(request, postData);
         }
     }
 }
