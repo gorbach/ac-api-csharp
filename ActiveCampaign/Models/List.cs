@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ActiveCampaign.Responses;
+using ActiveCampaign.Struct;
 
 namespace ActiveCampaign.Models
 {
@@ -28,6 +29,19 @@ namespace ActiveCampaign.Models
             string postData = "ids=" + idsStr;
 
             return SendRequest<FieldsListResult>(request, postData);
+        }
+
+        public ListFieldInsertResult ListFieldAdd(ListField field)
+        {
+            var request = Api.AcUrl + "list_field_add";
+
+            string postData = "title=" + field.Title +
+                              "&type=" + (int)field.ListFieldType +
+                              "&perstag=" + field.Perstag +
+                              "&p[0]=" + "0" + // all lists
+                              "&req=" + (field.Required ? "1" : "0");
+
+            return SendRequest<ListFieldInsertResult>(request, postData);
         }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Responses\FieldsListResponse.cs" />
     <Compile Include="Models\HttpHelper.cs" />
     <Compile Include="Responses\IApiResult.cs" />
+    <Compile Include="Responses\ListFieldInsertResult.cs" />
     <Compile Include="Responses\Options.cs" />
     <Compile Include="Responses\Row.cs" />
     <Compile Include="Responses\SubscriberInsertResponse.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Struct\Contact.cs" />
     <Compile Include="Struct\CoreStruct.cs" />
+    <Compile Include="Struct\ListField.cs" />
     <Compile Include="Struct\User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
