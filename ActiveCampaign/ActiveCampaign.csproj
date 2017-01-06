@@ -49,7 +49,9 @@
     <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Responses\ListInsertResult.cs" />
     <Compile Include="Responses\ListSelectList.cs" />
+    <Compile Include="Struct\ListAddOptions.cs" />
     <Compile Include="Struct\ListListOptions.cs" />
     <Compile Include="Responses\FieldsListResponse.cs" />
     <Compile Include="Models\HttpHelper.cs" />

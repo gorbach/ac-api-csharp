@@ -49,5 +49,33 @@ namespace ActiveCampaign.Models
 
             return SendRequest<ListSelectList>(request, postData);
         }
+
+
+        public ListInsertResult Add(ListAddOptions options)
+        {
+            var request = Api.AcUrl + "list_add";
+
+            string postData = "name=" + options.Name;
+            postData += "&subscription_notify=" + options.subscription_notify;
+            postData += "&unsubscription_notify=" + options.unsubscription_notify;
+            postData += "&to_name=" + options.to_name;
+            postData += "&carboncopy=" + options.carboncopy;
+            postData += "&stringid=" + options.stringid;
+            postData += "&p_use_twitter=" + HttpHelper.Bool(options.p_use_twitter);
+            postData += "&twitter_user=" + options.twitter_user;
+            postData += "&twitter_pass=" + options.twitter_pass;
+            postData += "&send_last_broadcast=" + HttpHelper.Bool(options.send_last_broadcast);
+            postData += "&require_name=" + HttpHelper.Bool(options.require_name);
+            postData += "&private=" + HttpHelper.Bool(options.Private);
+            postData += "&sender_name=" + options.sender_name;
+            postData += "&sender_city=" + options.sender_city;
+            postData += "&sender_addr1=" + options.sender_addr1;
+            postData += "&sender_zip=" + options.sender_zip;
+            postData += "&sender_country=" + options.sender_country;
+            postData += "&sender_url=" + options.sender_url;
+            postData += "&sender_reminder=" + options.sender_reminder;
+
+            return SendRequest<ListInsertResult>(request, postData);
+        }
     }
 }
