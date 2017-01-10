@@ -50,6 +50,7 @@
     <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Responses\Campaign.cs" />
     <Compile Include="Responses\CampaignCreateResult.cs" />
     <Compile Include="Responses\CampaignDeleteListResult.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Struct\Contact.cs" />
     <Compile Include="Struct\CoreStruct.cs" />
     <Compile Include="Struct\ListField.cs" />
+    <Compile Include="Struct\MessageAddOptions.cs" />
     <Compile Include="Struct\User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
