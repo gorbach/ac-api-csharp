@@ -52,11 +52,15 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Responses\Campaign.cs" />
     <Compile Include="Responses\CampaignCreateResult.cs" />
+    <Compile Include="Responses\CampaignDeleteListResult.cs" />
+    <Compile Include="Responses\CampaignDeleteResult.cs" />
+    <Compile Include="Responses\CampaignSendResult.cs" />
     <Compile Include="Responses\ListInsertResult.cs" />
     <Compile Include="Responses\ListRow.cs" />
     <Compile Include="Responses\ListSelectList.cs" />
     <Compile Include="Struct\CampaignAddOptions.cs" />
     <Compile Include="Struct\CampaignListOptions.cs" />
+    <Compile Include="Struct\CampaignSendOptions.cs" />
     <Compile Include="Struct\ListAddOptions.cs" />
     <Compile Include="Struct\ListListOptions.cs" />
     <Compile Include="Responses\FieldsListResponse.cs" />

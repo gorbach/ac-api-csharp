@@ -57,5 +57,35 @@ namespace ActiveCampaign.Models
             postData += "&page=" + options.page;
             return SendRequest<CampaignSelectListResult>(request, postData);
         }
+
+        /// <summary>
+        /// Re-send an existing campaign using optional actions like 'copy', 'preview', 'test'.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public CampaignSendResult Send(CampaignSendOptions options)
+        {
+            var request = Api.AcUrl + "campaign_send";
+
+            string postData = "email=" + options.email;
+            postData += "&campaignid=" + options.campaignid;
+            postData += "&messageid=" + options.messageid;
+            postData += "&type=" + options.type;
+            postData += "&action=" + options.action;
+            return SendRequest<CampaignSendResult>(request, postData);
+        }
+
+        /// <summary>
+        /// Allows you to delete multiple campaigns at once.
+        /// </summary>
+        /// <param name="ids">ID's of the campaigns you wish to delete</param>
+        /// <returns></returns>
+        public CampaignDeleteListResult Delete(int[] ids)
+        {
+            var request = Api.AcUrl + "campaign_delete_list";
+
+            string postData = "ids=" + HttpHelper.IdsStr(ids);
+            return SendRequest<CampaignDeleteListResult>(request, postData);
+        }
     }
 }
