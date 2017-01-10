@@ -6,15 +6,15 @@ namespace ActiveCampaign.Responses
     public class ListInsertResult : IApiResult
     {
         [XmlElement(ElementName = "id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [XmlElement(ElementName = "result_code")]
         public int ResultCode { get; set; }
 
         [XmlElement(ElementName = "result_message")]
-        public string Result_message { get; set; }
+        public string ResultMessage { get; set; }
 
         [XmlElement(ElementName = "result_output")]
-        public string Result_output { get; set; }
+        public string ResultOutput { get; set; }
     }
 }

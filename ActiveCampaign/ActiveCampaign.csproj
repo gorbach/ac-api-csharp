@@ -50,6 +50,7 @@
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Responses\ListInsertResult.cs" />
+    <Compile Include="Responses\ListRow.cs" />
     <Compile Include="Responses\ListSelectList.cs" />
     <Compile Include="Struct\ListAddOptions.cs" />
     <Compile Include="Struct\ListListOptions.cs" />
