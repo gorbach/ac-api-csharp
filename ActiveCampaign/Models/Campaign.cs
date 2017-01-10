@@ -1,9 +1,15 @@
-﻿using ActiveCampaign.Struct;
+﻿using ActiveCampaign.Responses;
+using ActiveCampaign.Struct;
 
 namespace ActiveCampaign.Models
 {
     public class Campaign : Base
     {
+        public Campaign(Api api)
+        {
+            Api = api;
+        }
+
         public string Add(CampaignAddOptions options)
         {
             var request = Api.AcUrl + "campaign_create";
@@ -37,6 +43,19 @@ namespace ActiveCampaign.Models
             postData += HttpHelper.FormatValues("p", options.ListDictionary);
             postData += HttpHelper.FormatValues("m", options.MessageDictionary);
             return WriteStream(request, postData);
+        }
+
+        public CampaignSelectListResult List(CampaignListOptions options)
+        {
+            var request = Api.AcUrl + "campaign_list";
+
+            string postData = "full=" + HttpHelper.Bool(options.full);
+            postData += "&ids=" + HttpHelper.IdsStr(options.Ids);
+            postData += "&sort=" + options.sort.ToString();
+            postData += HttpHelper.FormatValues("filters", options.Filters);
+            postData += "&sort_direction=" + options.sort_direction;
+            postData += "&page=" + options.page;
+            return SendRequest<CampaignSelectListResult>(request, postData);
         }
     }
 }

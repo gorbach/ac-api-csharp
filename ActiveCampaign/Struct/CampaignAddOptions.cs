@@ -185,4 +185,11 @@ namespace ActiveCampaign.Struct
         activerss,
         text
     }
+
+    public enum CampaignSortOptions
+    {
+        id, cdate
+    }
+
+    public enum SortDirections { ASC, DESC }
 }
