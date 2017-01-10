@@ -4,6 +4,11 @@ namespace ActiveCampaign.Struct
 {
     public class CampaignListOptions
     {
+        public CampaignListOptions()
+        {
+            Filters = new Dictionary<string, string>();
+        }
+
         public int[] Ids { get; set; }
 
         public Dictionary<string, string> Filters { get; set; }

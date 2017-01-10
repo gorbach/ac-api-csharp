@@ -26,7 +26,7 @@ namespace ActiveCampaign.Responses
     public class Messages
     {
         [XmlElement(ElementName = "id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [XmlElement(ElementName = "userid")]
         public string Userid { get; set; }
         [XmlElement(ElementName = "ed_instanceid")]
@@ -101,7 +101,8 @@ namespace ActiveCampaign.Responses
     public class CampaignRow
     {
         [XmlElement(ElementName = "id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
+
         [XmlElement(ElementName = "type")]
         public string Type { get; set; }
         [XmlElement(ElementName = "userid")]

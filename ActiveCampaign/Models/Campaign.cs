@@ -10,7 +10,7 @@ namespace ActiveCampaign.Models
             Api = api;
         }
 
-        public string Add(CampaignAddOptions options)
+        public CampaignCreateResult Add(CampaignAddOptions options)
         {
             var request = Api.AcUrl + "campaign_create";
 
@@ -42,7 +42,7 @@ namespace ActiveCampaign.Models
             postData += "&addressid=" + options.addressid;
             postData += HttpHelper.FormatValues("p", options.ListDictionary);
             postData += HttpHelper.FormatValues("m", options.MessageDictionary);
-            return WriteStream(request, postData);
+            return SendRequest<CampaignCreateResult>(request, postData);
         }
 
         public CampaignSelectListResult List(CampaignListOptions options)
