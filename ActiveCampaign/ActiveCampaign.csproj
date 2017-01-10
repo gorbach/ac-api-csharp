@@ -45,6 +45,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Automation.cs" />
     <Compile Include="Models\Branding.cs" />
+    <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\Fields.cs" />
     <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\List.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Responses\ListInsertResult.cs" />
     <Compile Include="Responses\ListRow.cs" />
     <Compile Include="Responses\ListSelectList.cs" />
+    <Compile Include="Struct\CampaignAddOptions.cs" />
     <Compile Include="Struct\ListAddOptions.cs" />
     <Compile Include="Struct\ListListOptions.cs" />
     <Compile Include="Responses\FieldsListResponse.cs" />
