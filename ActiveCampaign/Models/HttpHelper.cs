@@ -45,5 +45,11 @@ namespace ActiveCampaign.Models
         {
             return value ? "1" : "0";
         }
+
+        public static string Date(DateTime? value)
+        {
+            if (value == null) return "";
+            return value.Value.ToString("yyyy-MM-dd hh:mm:ss");
+        }
     }
 }

@@ -69,5 +69,16 @@ namespace ActiveCampaign.Tests
             var r = HttpHelper.IdsStr(2, 3);
             Assert.Equal("2,3", r);
         }
+
+        [Fact]
+        public void test_date()
+        {
+            var expected = "2010-11-05 08:40:00";
+            var date = new DateTime(2010, 11, 05, 08, 40, 00);
+
+            var actual = HttpHelper.Date(date);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
