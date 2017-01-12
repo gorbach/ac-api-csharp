@@ -31,6 +31,8 @@ namespace ActiveCampaign.Struct
 
         public HtmlConstructorOptions htmlconstructor { get; set; }
 
+        public string html { get; set; }
+
         public string htmlfetch { get; set; }
 
         public string htmlfetchwhen { get; set; }

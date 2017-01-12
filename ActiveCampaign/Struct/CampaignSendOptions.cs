@@ -25,7 +25,7 @@ namespace ActiveCampaign.Struct
         /// <summary>
         /// Examples: 'send' = send a campaign to this contact and to append him to the recipients list, 'copy' = send a copy of a campaign to contact (campaign is not updated), 'test' = send a test email to contact (campaign is not updated), 'source' = simulate a campaign test to contact (campaign is not updated), return message source, 'messagesize' = simulate a campaign test to contact (campaign is not updated), return message size, 'spamcheck' = simulate a campaign test to contact (campaign is not updated), return spam rate, 'preview' = same as preview
         /// </summary>
-        public CampaignSendTypes action { get; set; }
+        public CapmaignSendActions action { get; set; }
     }
 
     public enum CampaignSendTypes

@@ -239,11 +239,14 @@ namespace ActiveCampaign.Responses
     public class Lists
     {
         [XmlElement(ElementName = "id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
+
         [XmlElement(ElementName = "campaignid")]
-        public string Campaignid { get; set; }
+        public int Campaignid { get; set; }
+
         [XmlElement(ElementName = "listid")]
-        public string Listid { get; set; }
+        public int Listid { get; set; }
+
         [XmlElement(ElementName = "userid")]
         public string Userid { get; set; }
         [XmlElement(ElementName = "list_amt")]
@@ -328,15 +331,6 @@ namespace ActiveCampaign.Responses
         public string Deletestamp { get; set; }
         [XmlElement(ElementName = "relid")]
         public string Relid { get; set; }
-    }
-
-    [XmlRoot(ElementName = "images")]
-    public class Images
-    {
-        [XmlElement(ElementName = "link")]
-        public string Link { get; set; }
-        [XmlElement(ElementName = "hash")]
-        public string Hash { get; set; }
     }
 
     [XmlRoot(ElementName = "campaign_select_list")]
