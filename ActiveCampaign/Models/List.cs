@@ -77,5 +77,14 @@ namespace ActiveCampaign.Models
 
             return SendRequest<ListInsertResult>(request, postData);
         }
+
+        public ListDeleteMulti Delete(params int[] ids)
+        {
+            var request = Api.AcUrl + "list_delete_list";
+
+            string postData = "ids=" + HttpHelper.IdsStr(ids);
+
+            return SendRequest<ListDeleteMulti>(request, postData);
+        }
     }
 }

@@ -2,9 +2,12 @@
 
 namespace ActiveCampaign.Responses
 {
-    [XmlRoot(ElementName = "campaign_send")]
+    [XmlRoot(ElementName = "campaign_ajax_send")]
     public class CampaignSendResult : IApiResult
     {
+        [XmlElement(ElementName = "result")]
+        public string Result { get; set; }
+
         [XmlElement(ElementName = "result_code")]
         public int ResultCode { get; set; }
 

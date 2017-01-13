@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace ActiveCampaign.Responses
 {
-    [XmlRoot(ElementName = "list_select_list")]
-    public class ListSelectList : IApiResult
+    [XmlRoot(ElementName = "message_insert_post")]
+    public class MessageInsertPost : IApiResult
     {
-        [XmlElement(ElementName = "row")]
-        public List<ListRow> Lists { get; set; }
+        [XmlElement(ElementName = "id")]
+        public int Id { get; set; }
+
+        [XmlElement(ElementName = "subject")]
+        public string Subject { get; set; }
 
         [XmlElement(ElementName = "result_code")]
         public int ResultCode { get; set; }

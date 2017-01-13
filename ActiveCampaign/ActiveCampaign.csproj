@@ -57,11 +57,14 @@
     <Compile Include="Responses\CampaignDeleteResult.cs" />
     <Compile Include="Responses\CampaignSendResult.cs" />
     <Compile Include="Responses\Images.cs" />
+    <Compile Include="Responses\ListDeleteMulti.cs" />
     <Compile Include="Responses\ListInsertResult.cs" />
     <Compile Include="Responses\ListRow.cs" />
     <Compile Include="Responses\ListSelectList.cs" />
     <Compile Include="Responses\Message.cs" />
+    <Compile Include="Responses\MessageInsertPost.cs" />
     <Compile Include="Responses\MessageSelectList.cs" />
+    <Compile Include="Responses\MessageSelectResult.cs" />
     <Compile Include="Struct\CampaignAddOptions.cs" />
     <Compile Include="Struct\CampaignListOptions.cs" />
     <Compile Include="Struct\CampaignSendOptions.cs" />

@@ -62,7 +62,7 @@ namespace ActiveCampaign.Models
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public string Add(MessageAddOptions options)
+        public MessageInsertPost Add(MessageAddOptions options)
         {
             var request = Api.AcUrl + "message_add";
 
@@ -83,7 +83,7 @@ namespace ActiveCampaign.Models
             postData += "&textfetch=" + options.textfetch;
             postData += "&textfetchwhen=" + options.textfetchwhen;
             postData += HttpHelper.FormatValues("p", options.ListDictionary);
-            return WriteStream(request, postData);
+            return SendRequest<MessageInsertPost>(request, postData);
         }
 
         /// <summary>
