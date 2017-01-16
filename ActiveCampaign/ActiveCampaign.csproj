@@ -51,6 +51,7 @@
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Responses\AccountGetResult.cs" />
     <Compile Include="Responses\Campaign.cs" />
     <Compile Include="Responses\CampaignCreateResult.cs" />
     <Compile Include="Responses\CampaignDeleteListResult.cs" />

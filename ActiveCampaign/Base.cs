@@ -77,9 +77,19 @@ namespace ActiveCampaign
             return data;
         }
 
-        public T SendRequest<T>(string url, string postStruct)
+        public T SendRequest<T>(string url, string postStruct = null)
         {
-            var response = WriteStream(url, postStruct);
+            string response;
+
+            if (string.IsNullOrEmpty(postStruct))
+            {
+                response = ReadStream(url);
+            }
+            else
+            {
+                response = WriteStream(url, postStruct);
+            }
+
             return XmlHelper.Deserialize<T>(response);
         }
     }

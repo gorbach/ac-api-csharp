@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ActiveCampaign.Responses;
 
 namespace ActiveCampaign.Models
 {
@@ -12,10 +13,10 @@ namespace ActiveCampaign.Models
             Api = api;
         }
 
-        public string View()
+        public AccountGetResult View()
         {
             var request = Api.AcUrl + "account_view";
-            var response = ReadStream(request);
+            var response = SendRequest<AccountGetResult>(request);
             return response;
         }
     }
