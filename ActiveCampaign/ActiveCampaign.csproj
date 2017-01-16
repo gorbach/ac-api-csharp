@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ActiveCampaign</RootNamespace>
     <AssemblyName>ActiveCampaign</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,8 +30,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -43,6 +50,7 @@
     <Compile Include="API.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Automation.cs" />
     <Compile Include="Models\Branding.cs" />
     <Compile Include="Models\Campaign.cs" />
@@ -52,6 +60,8 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Responses\AccountGetResult.cs" />
+    <Compile Include="Responses\Address\AddressDeleteResult.cs" />
+    <Compile Include="Responses\Address\AddressResponse.cs" />
     <Compile Include="Responses\Campaign.cs" />
     <Compile Include="Responses\CampaignCreateResult.cs" />
     <Compile Include="Responses\CampaignDeleteListResult.cs" />
@@ -66,6 +76,7 @@
     <Compile Include="Responses\MessageInsertPost.cs" />
     <Compile Include="Responses\MessageSelectList.cs" />
     <Compile Include="Responses\MessageSelectResult.cs" />
+    <Compile Include="Struct\AddressAddOptions.cs" />
     <Compile Include="Struct\CampaignAddOptions.cs" />
     <Compile Include="Struct\CampaignListOptions.cs" />
     <Compile Include="Struct\CampaignSendOptions.cs" />
@@ -88,6 +99,9 @@
     <Compile Include="Struct\ListField.cs" />
     <Compile Include="Struct\MessageAddOptions.cs" />
     <Compile Include="Struct\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
