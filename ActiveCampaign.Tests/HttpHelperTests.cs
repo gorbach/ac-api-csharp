@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ActiveCampaign.Helpers;
 using ActiveCampaign.Models;
 using Xunit;
 using Xunit.Sdk;

@@ -1,4 +1,5 @@
-﻿using ActiveCampaign.Responses;
+﻿using ActiveCampaign.Helpers;
+using ActiveCampaign.Responses;
 using ActiveCampaign.Struct;
 
 namespace ActiveCampaign.Models

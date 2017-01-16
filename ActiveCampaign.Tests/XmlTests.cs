@@ -1,4 +1,5 @@
-﻿using ActiveCampaign.Models;
+﻿using ActiveCampaign.Helpers;
+using ActiveCampaign.Models;
 using ActiveCampaign.Responses;
 using Xunit;
 

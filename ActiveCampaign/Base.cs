@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using ActiveCampaign.Helpers;
 using ActiveCampaign.Models;
 using ActiveCampaign.Struct;
 using static System.Net.WebRequestMethods;

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ActiveCampaign.Helpers;
 using ActiveCampaign.Responses;
 using ActiveCampaign.Struct;
 

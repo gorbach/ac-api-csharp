@@ -190,6 +190,4 @@ namespace ActiveCampaign.Struct
     {
         id, cdate
     }
-
-    public enum SortDirections { ASC, DESC }
 }

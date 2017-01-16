@@ -1,4 +1,5 @@
-﻿using ActiveCampaign.Responses.Address;
+﻿using ActiveCampaign.Helpers;
+using ActiveCampaign.Responses.Address;
 using ActiveCampaign.Struct;
 using Newtonsoft.Json;
 
@@ -38,6 +39,24 @@ namespace ActiveCampaign.Models
             string postData = "id=" + id;
 
             return JsonConvert.DeserializeObject<AddressDeleteResult>(WriteStream(request, postData));
+        }
+
+        /// <summary>
+        /// View many (or all) addresses by including their ID's.
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="sort"></param>
+        /// <param name="sortd"></param>
+        /// <returns></returns>
+        public AddressListResponse List(int page = 0, string sort = "id", SortDirections sortd = SortDirections.ASC)
+        {
+            var request = Api.AcUrl + "address_list";
+
+            string postData = "page=" + page;
+            postData += "&sort=" + sort;
+            postData += "&sortd=" + sortd;
+
+            return AddressResponseParser.Parse(WriteStream(request, postData));
         }
     }
 }

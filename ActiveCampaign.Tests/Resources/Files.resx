@@ -127,4 +127,7 @@
   <data name="subscriber_update_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>subscriber_update_post.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="address_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>address_list.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
