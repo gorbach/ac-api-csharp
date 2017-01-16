@@ -109,5 +109,18 @@ namespace ActiveCampaign.Models
         {
             return id.Select(View).ToList();
         }
+
+        /// <summary>
+        /// Allows you to delete multiple email messages at once.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public MessageDeleteMultiResult Delete(int[] id)
+        {
+            var request = Api.AcUrl + "message_delete_list";
+
+            string postData = "ids=" + HttpHelper.IdsStr(id);
+            return SendRequest<MessageDeleteMultiResult>(request, postData);
+        }
     }
 }

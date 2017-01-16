@@ -81,12 +81,12 @@ namespace ActiveCampaign.Models
         /// </summary>
         /// <param name="ids">ID's of the campaigns you wish to delete</param>
         /// <returns></returns>
-        public CampaignDeleteListResult Delete(int[] ids)
+        public CampaignDeleteMultiResult Delete(int[] ids)
         {
             var request = Api.AcUrl + "campaign_delete_list";
 
             string postData = "ids=" + HttpHelper.IdsStr(ids);
-            return SendRequest<CampaignDeleteListResult>(request, postData);
+            return SendRequest<CampaignDeleteMultiResult>(request, postData);
         }
     }
 }

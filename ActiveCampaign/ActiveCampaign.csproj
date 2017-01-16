@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ActiveCampaign</RootNamespace>
     <AssemblyName>ActiveCampaign</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -74,6 +74,7 @@
     <Compile Include="Responses\ListRow.cs" />
     <Compile Include="Responses\ListSelectList.cs" />
     <Compile Include="Responses\Message.cs" />
+    <Compile Include="Responses\MessageDeleteMultiResult.cs" />
     <Compile Include="Responses\MessageInsertPost.cs" />
     <Compile Include="Responses\MessageSelectList.cs" />
     <Compile Include="Responses\MessageSelectResult.cs" />
